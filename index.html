@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PromptForge Advanced Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <aside class="sidebar card">
+        <div class="brand">
+          <svg viewBox="0 0 120 24" class="brand-svg" aria-hidden="true">
+            <rect x="1" y="1" width="22" height="22" rx="6" class="svg-accent" />
+            <path d="M8 17L12 7L16 17" class="svg-stroke" />
+            <path d="M36 16V8h5c2 0 3 1 3 2.5S43 13 41 13h-5" class="svg-stroke" />
+            <path d="M48 16V8h8" class="svg-stroke" />
+            <path d="M48 12h6" class="svg-stroke" />
+            <path d="M60 16V8h5c2.2 0 3.5 1.6 3.5 4S67.2 16 65 16h-5" class="svg-stroke" />
+          </svg>
+          <h1>PromptForge Advanced Studio</h1>
+        </div>
+        <nav class="menu" id="menu"></nav>
+        <div class="theme-row">
+          <span>Tema</span>
+          <button id="themeToggle" class="btn secondary">🌙/☀️</button>
+        </div>
+      </aside>
+
+      <main class="main-grid">
+        <section class="center-column">
+          <div id="dashboard" class="view card"></div>
+          <div id="library" class="view card hidden"></div>
+          <div id="editor" class="view card hidden"></div>
+          <div id="builder" class="view card hidden"></div>
+          <div id="templates" class="view card hidden"></div>
+        </section>
+
+        <aside class="right-column card">
+          <div class="tabs">
+            <button class="tab active" data-right-tab="preview">Vista previa</button>
+            <button class="tab" data-right-tab="json">JSON</button>
+            <button class="tab" data-right-tab="svg">SVG</button>
+            <button class="tab" data-right-tab="versions">Versiones</button>
+          </div>
+
+          <section id="previewPanel" class="right-panel"></section>
+          <section id="jsonPanel" class="right-panel hidden"></section>
+          <section id="svgPanel" class="right-panel hidden"></section>
+          <section id="versionsPanel" class="right-panel hidden"></section>
+        </aside>
+      </main>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

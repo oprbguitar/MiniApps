@@ -1,0 +1,117 @@
+:root {
+  --bg: #f2f5fb;
+  --card: #ffffff;
+  --text: #15213a;
+  --muted: #6a7691;
+  --border: #d9e2f0;
+  --accent: #4f46e5;
+  --accent-soft: #e5e7ff;
+  --success: #0f9d58;
+  --danger: #d93025;
+}
+
+body.dark {
+  --bg: #0f1422;
+  --card: #171f33;
+  --text: #edf2ff;
+  --muted: #a0acc9;
+  --border: #2a3756;
+  --accent: #8a7dff;
+  --accent-soft: #211f46;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; gap: 14px; padding: 14px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.sidebar { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.brand h1 { font-size: 1rem; margin: 8px 0 0; }
+.brand-svg { width: 120px; height: 24px; }
+.svg-accent { fill: var(--accent-soft); stroke: var(--accent); }
+.svg-stroke { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.menu { display: grid; gap: 8px; }
+.menu button { text-align: left; }
+.main-grid { display: grid; grid-template-columns: 1fr 430px; gap: 14px; }
+.center-column, .right-column { min-height: calc(100vh - 28px); }
+.view { padding: 16px; min-height: calc(100vh - 60px); }
+.right-column { padding: 10px; display: flex; flex-direction: column; }
+.right-panel { overflow: auto; }
+.hidden { display: none !important; }
+
+button, select, input, textarea {
+  font: inherit;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--text);
+}
+button { cursor: pointer; }
+.btn { background: var(--accent); color: #fff; border-color: transparent; }
+.btn.secondary { background: var(--accent-soft); color: var(--text); }
+.btn.danger { background: var(--danger); color: #fff; }
+
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.stat { padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in oklab, var(--card), var(--accent-soft) 20%); }
+.small { font-size: .85rem; color: var(--muted); }
+.list { display: grid; gap: 8px; margin-top: 10px; }
+.item { border: 1px solid var(--border); border-radius: 12px; padding: 10px; }
+
+textarea { width: 100%; min-height: 90px; resize: vertical; }
+#mainPromptInput { min-height: 190px; }
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: pre-wrap;
+  background: color-mix(in oklab, var(--card), #000 4%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+}
+.json-highlight .k { color: #c678dd; }
+.json-highlight .s { color: #98c379; }
+.json-highlight .n { color: #61afef; }
+
+.tabs { display: flex; gap: 8px; margin-bottom: 8px; }
+.tab.active { border-color: var(--accent); color: var(--accent); }
+
+.builder-block { border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-bottom: 8px; }
+.builder-head { display: flex; justify-content: space-between; gap: 6px; }
+.pill { font-size: .75rem; padding: 4px 8px; border-radius: 999px; background: var(--accent-soft); }
+.eval-bar { height: 8px; border-radius: 999px; background: var(--border); overflow: hidden; }
+.eval-bar > span { display: block; height: 100%; background: linear-gradient(90deg, #ff6a5e, #f6c945, #0f9d58); }
+
+.toast {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  background: var(--text);
+  color: var(--card);
+  padding: 9px 12px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .2s ease;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  .main-grid { grid-template-columns: 1fr; }
+  .right-column { min-height: 420px; }
+}
+@media (max-width: 860px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { position: sticky; top: 8px; z-index: 3; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
