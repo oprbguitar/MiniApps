@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PromptForge Advanced Studio</title>
+    <meta name="description" content="PromptForge Studio — Laboratorio profesional para diseñar, organizar y exportar prompts avanzados para IA." />
+    <title>PromptForge Studio — AI Prompt Engineering Lab</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="dark">
     <div id="app" class="app-shell">
       <aside class="sidebar card">
         <div class="brand">
@@ -18,12 +20,16 @@
             <path d="M48 12h6" class="svg-stroke" />
             <path d="M60 16V8h5c2.2 0 3.5 1.6 3.5 4S67.2 16 65 16h-5" class="svg-stroke" />
           </svg>
-          <h1>PromptForge Advanced Studio</h1>
+          <h1>PromptForge Studio</h1>
+          <p class="small">v2.0 · AI Prompt Lab</p>
         </div>
         <nav class="menu" id="menu"></nav>
         <div class="theme-row">
           <span>Tema</span>
-          <button id="themeToggle" class="btn secondary">🌙/☀️</button>
+          <button id="themeToggle" class="btn secondary" aria-label="Cambiar tema">🌙/☀️</button>
+        </div>
+        <div class="small" style="text-align:center;opacity:0.5;padding-top:4px">
+          <span class="kbd">Ctrl+N</span> Nuevo · <span class="kbd">Ctrl+S</span> Guardar
         </div>
       </aside>
 
@@ -34,14 +40,15 @@
           <div id="editor" class="view card hidden"></div>
           <div id="builder" class="view card hidden"></div>
           <div id="templates" class="view card hidden"></div>
+          <div id="settings" class="view card hidden"></div>
         </section>
 
         <aside class="right-column card">
           <div class="tabs">
             <button class="tab active" data-right-tab="preview">Vista previa</button>
             <button class="tab" data-right-tab="json">JSON</button>
-            <button class="tab" data-right-tab="svg">SVG</button>
-            <button class="tab" data-right-tab="versions">Versiones</button>
+            <button class="tab" data-right-tab="svg">Flujo</button>
+            <button class="tab" data-right-tab="versions">Análisis</button>
           </div>
 
           <section id="previewPanel" class="right-panel"></section>
